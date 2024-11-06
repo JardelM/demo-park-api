@@ -1,3 +1,3 @@
-insert into USUARIOS (id, username, password, role) values (1500, 'teste@email.com', '123456', 'ROLE_CLIENTE');
-insert into USUARIOS (id, username, password, role) values (1501, 'ana@email.com', '123456', 'ROLE_CLIENTE');
-insert into USUARIOS (id, username, password, role) values (1502, 'beatriz@email.com', '123456', 'ROLE_CLIENTE');
+insert into USUARIOS (id, username, password, role) values (1500, 'teste@email.com', '$2a$12$ylehdkOMCgfpRaFVh7S3Cuefzpx/N9SV7EqsW4Sv8JTVuAlGM6TGG', 'ROLE_ADMIN');
+insert into USUARIOS (id, username, password, role) values (1501, 'ana@email.com', '$2a$12$ylehdkOMCgfpRaFVh7S3Cuefzpx/N9SV7EqsW4Sv8JTVuAlGM6TGG', 'ROLE_CLIENTE');
+insert into USUARIOS (id, username, password, role) values (1502, 'beatriz@email.com', '$2a$12$ylehdkOMCgfpRaFVh7S3Cuefzpx/N9SV7EqsW4Sv8JTVuAlGM6TGG', 'ROLE_CLIENTE');

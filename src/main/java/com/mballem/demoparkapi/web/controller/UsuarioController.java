@@ -105,7 +105,6 @@ public class UsuarioController {
                     @ApiResponse (responseCode = "403", description = "Usuario sem permissao de acesso ao recurso",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
             })
-
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public ResponseEntity <List<UsuarioResponseDto>> getAll () {

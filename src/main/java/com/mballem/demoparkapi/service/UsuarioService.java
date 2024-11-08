@@ -6,6 +6,7 @@ import com.mballem.demoparkapi.exception.PasswordInvalidException;
 import com.mballem.demoparkapi.exception.UsernameUniqueViolationException;
 import com.mballem.demoparkapi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,7 @@ public class UsuarioService {
         try {
             usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
             return usuarioRepository.save(usuario);
-        } catch (org.springframework.dao.DataIntegrityViolationException ex) {
+        } catch (DataIntegrityViolationException ex) {
             throw new UsernameUniqueViolationException(String.format("Username {%s} já cadastrado", usuario.getUsername()));
         }
     }

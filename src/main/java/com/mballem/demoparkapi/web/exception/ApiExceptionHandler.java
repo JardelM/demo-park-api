@@ -1,9 +1,6 @@
 package com.mballem.demoparkapi.web.exception;
 
-import com.mballem.demoparkapi.exception.CpfUniqueViolationException;
-import com.mballem.demoparkapi.exception.EntityNotFoundException;
-import com.mballem.demoparkapi.exception.PasswordInvalidException;
-import com.mballem.demoparkapi.exception.UsernameUniqueViolationException;
+import com.mballem.demoparkapi.exception.*;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -69,8 +66,9 @@ public class  ApiExceptionHandler {
                 .body(new ErrorMessage(request, HttpStatus.BAD_REQUEST, ex.getMessage()));
     }
 
-    @ExceptionHandler(CpfUniqueViolationException.class)
-    public ResponseEntity <ErrorMessage> uniqueCpfViolationException (CpfUniqueViolationException ex, HttpServletRequest request) {
+    //captura violacao de integridade tanto de cpf quanto de codigo
+    @ExceptionHandler({CpfUniqueViolationException.class, CodigoUniqueViolationException.class})
+    public ResponseEntity <ErrorMessage> uniqueCpfViolationException (RuntimeException ex, HttpServletRequest request) {
 
         log.error("Api Error - ", ex);
         return ResponseEntity
@@ -78,4 +76,6 @@ public class  ApiExceptionHandler {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(new ErrorMessage(request, HttpStatus.CONFLICT, ex.getMessage()));
     }
+
+
 }

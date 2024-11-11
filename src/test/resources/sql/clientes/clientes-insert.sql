@@ -5,4 +5,4 @@ insert into USUARIOS (id, username, password, role) values (1503, 'toby@email.co
 
 
 insert into CLIENTES (id, nome, cpf, id_usuario) values (10, 'Ana Silva', '66651977008', 1501);
-insert into CLIENTES (id, nome, cpf, id_usuario) values (20, 'Beatriz T', '55449017081', 1502)
+insert into CLIENTES (id, nome, cpf, id_usuario) values (20, 'Beatriz T', '55449017081', 1502);
